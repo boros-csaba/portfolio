@@ -12,6 +12,7 @@ a {
     align-items: center;
     justify-content: center;
     padding: 100px 0;
+    flex-direction: column;
 }
 
 .section-header-container {
@@ -35,6 +36,7 @@ a {
     text-transform: uppercase;
     font-weight: bold;
     margin: 0 0 20px 0;
+    font-size: 22px;
 }
 
 .section-header-desc-title {
@@ -43,13 +45,15 @@ a {
 }
 
 .section-header-desc-text {
-    max-width: 600px;
-    margin: 40px 0 0 0;
+    max-width: 800px;
+    margin: 60px 20px 60px 20px;
     text-align: justify;
 }
 
 .contact-info {
     margin: 40px 0 0 0;
+    height: 100%;
+    font-size: 22px;
 }
 
 .section-skills {
@@ -71,7 +75,7 @@ a {
 }
 
 .project-container {
-    padding: 60px;
+    padding: 0 60px 60px 60px;
     margin: 40px 0;
     max-width: 70%;
     box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
@@ -95,9 +99,17 @@ a {
     text-align: justify;
 }
 
-@media screen and (max-width: 767px) {
+@media only screen and (max-width: 600px) {
     .project-container {
         margin: 40px 10px;
         max-width: 100%;
     }
+}
+
+.bookmark {
+    width: 30px;
+    height: 40px;
+    position: relative;
+    background: #d7ebbd;
+    margin: 0 0 20px 0;
 }
