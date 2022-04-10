@@ -147,6 +147,22 @@
             </div>
         </div>
 
+        <div class="cookie-consent">
+            <p class="cookie-consent-text">By using our site you agree to our use of cookies to deliver a better site experience.</p>
+            <p class="cookie-consent-button">Got it</p>
+        </div>
+
         <script type="text/javascript" src="jquery-3.6.0.min.js"></script>
+        <script type="text/javascript">
+            $(function() {
+                if (!localStorage.getItem("cookieConsent")) {
+                    $(".cookie-consent").css("display", "block");
+                }
+                $(".cookie-consent-button").on("click", function cookieConsent() {
+                    localStorage.setItem("cookieConsent", true);
+                    $(".cookie-consent").css("display", "none");
+                })
+            });
+        </script>
     </body>
 </html>

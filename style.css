@@ -145,3 +145,23 @@ a {
     background: #d7ebbd;
     margin: 0 0 20px 0;
 }
+
+
+
+.cookie-consent {
+    position: fixed;
+    display: none;
+    max-width: 288px;
+    padding: 20px;
+    padding: 32px;
+    bottom: 32px;
+    right: 32px;
+    background: white;
+    box-shadow: 0 10px 24px 0 rgb(54 61 77 / 15%);
+    font-size: 18px;
+}
+
+.cookie-consent-button {
+    text-decoration: underline;
+    cursor: pointer;
+}
