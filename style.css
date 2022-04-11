@@ -35,7 +35,7 @@ a {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 100px 0;
+    padding: 100px 0 50px 0;
     flex-direction: column;
 }
 
@@ -75,6 +75,28 @@ a {
     text-align: justify;
 }
 
+.contact-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 50px;
+}
+
+.contact-link {
+    display: flex;
+    align-items: center;
+    font-family: Roboto,Helvetica Neue,sans-serif;
+    font-weight: 500;
+    margin: 4px;
+    padding: 0 14px 0 0;
+}
+
+.contact-link img {
+    width: 28px;
+    margin: 8px 10px;
+}
+
 
 
 .section-offered-services {
@@ -112,6 +134,7 @@ a {
     margin: 4px;
     font-family: Roboto,Helvetica Neue,sans-serif;
     font-weight: 500;
+    font-size: 14px;
 }
 
 .tech-chip:hover { 
@@ -119,8 +142,8 @@ a {
 }
 
 .tech-chip img {
-    width: 28px;
-    margin: 8px 10px;
+    width: 26px;
+    margin: 6px 8px;
 }
 
 .tech-chip div {
