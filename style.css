@@ -41,6 +41,7 @@ a {
 
 .section-header-container {
     max-width: 1000px;
+    background: white;
     display: flex;
     align-items: center;
     /* background-color: #d7ebbd; */
