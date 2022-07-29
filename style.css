@@ -115,11 +115,12 @@ a {
     }
 
     .section-header-image-mobile {
-        width: 200px;
-        height: 200px;
+        width: 150px;
+        height: 150px;
         display: block;
         border-radius: 200px;
         margin: 0 40px 0 0;
+        border: 2px dashed #3c452f;
     }
 
     .section-header-desc-container {
@@ -155,6 +156,14 @@ a {
 }
 
 @media (max-width: 580px) {
+    .section-header {
+        padding: 0;
+    }
+
+    .section-header-container {
+        box-shadow: none;
+    }
+
     .section-header-desc-container-top {
         justify-content: flex-start;
     }
@@ -167,11 +176,21 @@ a {
     }
 
     .section-header-desc-small-title {
-        font-size: 15px;
+        display: none;
     }
 
     .section-header-desc-title {
         font-size: 20px;
+    }
+
+    .section-header-desc-text {
+        font-size: 14px;
+        margin: 30px 0;
+    }
+
+    .contact-links {
+        margin: 0px;
+        padding: 30px 10px;
     }
 }
 
