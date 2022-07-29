@@ -26,6 +26,7 @@ a {
 
 
 .card {
+    background: white;
     box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
 }
 
@@ -40,7 +41,8 @@ a {
 }
 
 .section-header-container {
-    max-width: 1000px;
+    width: 1000px;
+    max-width: 100%;
     background: white;
     display: flex;
     align-items: center;
@@ -179,17 +181,18 @@ a {
 
 
 .projects-container {
-    width: 963px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 1300px;
+    max-width: 100%;
+    justify-content: space-around;
 }
 
 .project-container {
     padding: 0 60px 60px 60px;
     margin: 40px 0;
-    max-width: 70%;
-}
-
-.project-container-right {
-    margin: 40px 0 40px auto;
+    max-width: 300px;
 }
 
 .project-title {
