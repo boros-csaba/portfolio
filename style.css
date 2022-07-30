@@ -27,7 +27,7 @@ a {
 
 .card {
     background: white;
-    box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 6px 8px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
 }
 
 
@@ -202,11 +202,14 @@ a {
 
 .section-services-container {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
+    justify-content: center;
 }
 
 .serivces-list {
-    width: 400px;
+    width: 100%;
+    max-width: 400px;
     font-size: 16px;
     color: #6B7280;
     float: left;
@@ -218,8 +221,9 @@ a {
     flex-wrap: wrap;
     justify-content: center;
     float: left;
-    width: 460px;
-    padding: 0 20px;
+    width: 100%;
+    max-width: 460px;
+    padding: 20px 20px 0 20px;
 }
 
 .tech-chip {
@@ -270,15 +274,16 @@ a {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    width: 1300px;
-    max-width: 100%;
+    width: 100%;
     justify-content: space-around;
 }
 
 .project-container {
-    padding: 0 60px 60px 60px;
-    margin: 40px 0;
-    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+    margin: 40px 10px;
+    max-width: 350px;
 }
 
 .project-title {
@@ -295,19 +300,17 @@ a {
     text-align: justify;
 }
 
+.company-logo {
+    max-width: 100%;
+    max-height: 35px;
+    margin: 5px auto 10px auto;
+}
+
 @media only screen and (max-width: 600px) {
     .project-container {
         margin: 40px 10px;
         max-width: 100%;
     }
-}
-
-.bookmark {
-    width: 30px;
-    height: 40px;
-    position: relative;
-    background: #d7ebbd;
-    margin: 0 0 20px 0;
 }
 
 
