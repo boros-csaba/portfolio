@@ -329,7 +329,7 @@ a {
     padding: 20px;
     padding: 32px;
     bottom: 32px;
-    right: 32px;
+    left: 32px;
     background: white;
     box-shadow: 0 10px 24px 0 rgb(54 61 77 / 15%);
     font-size: 18px;
