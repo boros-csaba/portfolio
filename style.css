@@ -32,6 +32,43 @@ a {
 
 
 
+.post {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: white;
+    padding: 50px 10px;
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1.25rem;
+    overflow-wrap: break-word;
+    color: rgb(23, 23, 23);
+    text-align: left;
+}
+
+.post-title {
+    text-align: center;
+}
+
+.post h2 {
+    margin: 10px 0;
+}
+
+.post p {
+    margin: 0 0 40px 0;
+}
+
+.code {
+    background-color: black;
+    padding: 24px;
+    color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    font-size: 0.8em;
+}
+
+
+
 .section-header {
     display: flex;
     align-items: center;
@@ -266,6 +303,13 @@ a {
     font-size: 18px;
     padding-top: 20px;
 }
+
+
+
+.section-posts {
+    background-color: white;
+}
+
 
 
 
