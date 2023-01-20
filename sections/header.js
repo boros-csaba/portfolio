@@ -17,7 +17,7 @@ document.write(`
             </div>
 
             <div class="section-header-desc-text">
-                <b>I solve problems</b>. I'm an experienced, fast learner and enthusiastic <b>full-stack</b> developer with over <b>8 years</b> of professional experience in the <b>C# .NET stack</b> as a freelance developer. I don't shy away from the <b>DevOps</b> and DBA parts of the project either. I also like to create <b>beautiful UIs</b> that users love.<br />
+                <b>I solve problems</b>. I'm an experienced, fast learner and enthusiastic <b>full-stack</b> developer with over <b>8 years</b> of professional experience mostly with the <b>C# .NET, Node.js and React</b> stacks as a freelance developer. I don't shy away from the <b>DevOps</b> and DBA parts of the project either. I also like to create <b>beautiful UIs</b> that users love.<br />
                 Part of the <b>top 3%</b> of developers according to <a href="https://www.toptal.com/resume/boros-csaba" target="_blank">Toptal</a>.
             </div>
 
