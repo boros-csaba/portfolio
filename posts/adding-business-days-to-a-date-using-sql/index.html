@@ -1,0 +1,96 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/style.css?v=7">
+        <link rel="icon" href="/profile.ico">
+		<title>Adding business days to a date using SQL - Csaba Boros - Full-stack developer</title>
+		
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-Y1654MX7N3"></script>
+		<script>
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
+
+		  gtag('config', 'G-Y1654MX7N3');
+		</script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+    </head>
+    <body>
+
+        <script src="/sections/header.js"></script>
+        
+        <div class="post">
+            <h1 class="post-title">Adding business days to a date using SQL</h1>
+            <p>Recently I had a task that seemed very simple at first. I had a table with billing start dates and number of business days to bill. The task was to calculate the end date for each row. Basically to calculate the start date + number of business days without having to worry about holidays.</p>
+            <p>I was surprised that there is no built-in solution for this seemingly common problem. Here is my own take on the problem.</p>
+            The logic is quite simple:
+            <ul>
+                <li>for each 5 working days add an entire calendar week to the starting date</li>
+                <li>after adding the whole weeks add the remaining days (for example adding 8 days means adding 1 week and 3 days)</li>
+                <li>if the resulting date is a Saturday then add 2 more days</li>
+                <li>if the resulting date is a Saturday then add 1 more day</li>
+            </ul>
+            And here is the resulting code:
+            <p class="code">
+create function addWorkingDays(@startDate datetime, @workingDays int)
+returns datetime
+as begin
+    if @workingDays = 0
+        return @startDate
+
+    declare @calendarDays int = 
+        (@workingDays / 5) * 7 +  -- add whole weeks 
+        (@workingDays % 5) -- add remaining days
+
+    declare @resultDate datetime = dateadd(d, @calendarDays, @startDate)
+
+    declare @dayOfWeek int = ((datepart(DW, @resultdate) - 1) + @@datefirst ) % 7 --the @@datefirst part is needed if you are outside of US where 0 is Monday 
+
+    return case 
+        when @dayOfWeek = 0 then --Sunday
+            dateadd(d, @calendarDays, @startDate) + 1
+        when @dayOfWeek = 6 then -- Saturday
+            dateadd(d, @calendarDays, @startDate) + 2
+        else
+            dateadd(d, @calendarDays, @startDate)
+    end
+end
+            </p>
+            The bellow table lists a few test cases:
+            <img src="sql-dates-example.png" alt="SQL dates example"/>
+            <p></p>
+            <p>Your feedback is welcome! Please let me know if you think there is something important that should be included in this post or if you find anything wrong!</p>
+            <p>Comments available on <a href="https://dev.to/boroscsaba/adding-business-days-to-a-date-using-sql-26pb">dev.to</a></p>
+        </div>
+
+        <script src="/sections/offered-services.js"></script>
+
+        <div class="cookie-consent">
+            <p class="cookie-consent-text">By using our site you agree to our use of cookies to deliver a better site experience.</p>
+            <p class="cookie-consent-button">Got it</p>
+        </div>
+
+        <script type="text/javascript" src="jquery-3.6.0.min.js"></script>
+        <script type="text/javascript">
+            $(function() {
+                if (!localStorage.getItem("cookieConsent")) {
+                    $(".cookie-consent").css("display", "block");
+                }
+                $(".cookie-consent-button").on("click", function cookieConsent() {
+                    localStorage.setItem("cookieConsent", true);
+                    $(".cookie-consent").css("display", "none");
+                })
+            });
+        </script>
+
+        <!-- Calendly badge widget begin -->
+        <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+        <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+        <script type="text/javascript">window.onload = function() { Calendly.initBadgeWidget({ url: 'https://calendly.com/csaba-csaba', text: 'Schedule time with me', color: '#d7ebbd', textColor: '#000000', branding: true }); }</script>
+        <!-- Calendly badge widget end -->
+    </body>
+</html>
