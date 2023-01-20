@@ -9,7 +9,7 @@ document.write(`
                 <br />
                 <h2 class="serivces-list-title">Software consulting</h2>
                 <p>You project isn't going the way you hoped? Let me take a look at your code base from a fresh perspective and help you finding the right direction for you project!</p>
-                <p>My current rate is <b>$125/h</b></p>
+                <p>My current rate is <b>$90/h</b></p>
             </div>
             <div class="service-list-tech">
                 <div class="tech-chip">
