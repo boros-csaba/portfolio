@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "jquery-3.6.0.min.js",
+  "scripts": {
+    "start": "eleventy --serve",
+    "build": "eleventy"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/boros-csaba/portfolio.git"
