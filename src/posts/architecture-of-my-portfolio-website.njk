@@ -1,0 +1,77 @@
+---
+title: Architecture of my portfolio website
+layout: post
+tags: post
+---
+
+<p>
+    Initially I just created a simple static HTML and CSS page with some images to serve as my portfolio page - no frameworks, (almost) no javascript - why over complicate it?<br />
+    After some time I decided that I would also write a few blog posts and tutorials on my portfolio website, but again, I didn't want to over engineer my website.<br />
+    At first I thought that maybe I would just copy and paste a new page for each article.<br />
+    This sounds stupid but if you consider that I will only write about one article a month and I will not redesign my site too often, this use-case doesn't really justify the overhead of a back-end and database with more complicated and pricier hosting...</p>
+<img src="/assets/img/posts/few-word-do-trick.jpg" alt="Few word do trick"/>
+<p></p>
+<p>
+    But you wouldn't hire me if I did this!<br />
+    So here is what I did instead:
+</p>
+
+<h2>11ty</h2>
+<p>I converted my website to be compatible with 11ty. 11ty is a static site generate and it can generate static pages from template files. Basically I just had to configure a few things and create a nunjucks template file for my articles. I created a separate file for each of my articles with only the content of the of the post and some metadata for the nunjucks template. Now my website is still just a static site but the design and structure of the article pages is managed from a single template file.</p>
+
+<h2>Amazon S3</h2>
+<p>The website is hosted in an Amazon S3 bucket. For technical reason there are actually two buckets. One contains the actual website file the other bucket just points to the first one. This is needed to support both the www and non-www version of the site.</p>
+
+<h2>Amazon CloudFront</h2>
+<p>The S3 bucket is exposed through a CloudFront distribution. This makes the website load faster and also makes it possible to set up HTTPS.</p>
+
+<h2>AWS Certificate Manager</h2>
+<p>The certificate for HTTPS is provided by AWS Certificate Manager. The certificate is free and is easy to set up with CloudFront.</p>
+
+<h2>Amazon Route 53</h2>
+<p>I've bought my domain from a different registrar but I've set up my domain to use the name servers from my Route53 hosted zone. Using Route53 makes it easy to point the domain to the CloudFront distribution.</p>
+
+<h2>Github Actions</h2>
+<p>
+    Because I didn't want to manually upload my website to S3 every time I make a change or write a new article I've set up a pipeline to run the 11ty build and upload the website to S3 every time there is a commit to the master branch.<br />
+    Here is the yml file that does all this magic:
+</p>
+
+<p class="code">name: deployment
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    name: Deploy to S3
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install packages
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          aws-access-key-id: ${% raw %}{{ secrets.AWS_ACCESS_KEY_ID }}{% endraw %}
+          aws-secret-access-key: ${% raw %}{{ secrets.AWS_SECRET_ACCESS_KEY }}{% endraw %}
+          aws-region: us-west-1
+
+      - name: Deploy to S3
+        run: aws s3 sync ./dist s3://www.boroscsaba.com
+</p>
+
+<p>
+    The AWS credentials are stored as secrets in the repository settings.
+</p>
+<p>Your feedback is welcome! Please let me know if you think there is something important that should be included in this post or if you find anything wrong!</p>
+<p>Comments available on <a href="https://dev.to/boroscsaba/architecture-of-my-portfolio-website-mdg">dev.to</a></p>
