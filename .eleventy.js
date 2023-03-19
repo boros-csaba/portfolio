@@ -10,8 +10,8 @@ const imageShortcode = async (
   sizes = '100vw'
 ) => {
   const imageMetadata = await Image(src, {
-    widths: [...widths, null],
-    formats: [...formats, null],
+    widths: [...widths],
+    formats: [...formats],
     outputDir: './dist/assets/img/',
     urlPath: '/assets/img/',
   });
@@ -41,7 +41,7 @@ const imageShortcode = async (
     height: largestUnoptimizedImg.height,
     alt,
     loading: 'lazy',
-    decoding: 'async',
+    decoding: 'async'
   });
   const imgHtmlString = `<img ${imgAttributes}>`;
 
