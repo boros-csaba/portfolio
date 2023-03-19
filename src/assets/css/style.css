@@ -161,6 +161,15 @@ a {
         border: 2px dashed #3c452f;
     }
 
+    .section-header-image-mobile img {
+        width: 150px;
+        height: 150px;
+        display: block;
+        border-radius: 200px;
+        margin: 0 40px 0 0;
+    }
+
+
     .section-header-desc-container {
         margin: 20px;
     }
@@ -209,6 +218,13 @@ a {
     .section-header-image-mobile {
         width: 200px;
         max-width: 30%;
+        height: auto;
+        margin: 0 15px 0 0;
+    }
+
+    .section-header-image-mobile img {
+        width: 200px;
+        max-width: 100%;
         height: auto;
         margin: 0 15px 0 0;
     }
