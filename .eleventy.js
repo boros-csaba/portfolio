@@ -1,4 +1,5 @@
 const Image = require('@11ty/eleventy-img');
+const outdent = require('outdent');
 
 const imageShortcode = async (
   src,
@@ -11,8 +12,8 @@ const imageShortcode = async (
   const imageMetadata = await Image(src, {
     widths: [...widths, null],
     formats: [...formats, null],
-    outputDir: '_site/assets/images',
-    urlPath: '/assets/images',
+    outputDir: './dist/assets/img/',
+    urlPath: '/assets/img/',
   });
 
   const sourceHtmlString = Object.values(imageMetadata)
