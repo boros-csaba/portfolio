@@ -21,6 +21,7 @@
   "devDependencies": {
     "@11ty/eleventy": "^2.0.0",
     "@11ty/eleventy-img": "^3.0.0",
+    "html-minifier": "^4.0.0",
     "outdent": "^0.8.0"
   }
 }

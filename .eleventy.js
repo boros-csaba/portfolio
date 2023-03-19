@@ -1,5 +1,6 @@
 const Image = require('@11ty/eleventy-img');
 const outdent = require('outdent');
+const htmlmin = require('html-minifier');
 
 const imageShortcode = async (
   src,
@@ -68,6 +69,16 @@ const stringifyAttributes = (attributeMap) => {
 module.exports = function(eleventyConfig) {
     eleventyConfig.addPassthroughCopy("src/assets");
     eleventyConfig.addShortcode('image', imageShortcode);
+    eleventyConfig.addTransform('htmlmin', function(content, outputPath) {
+        if (outputPath.endsWith('.html')) {
+            return htmlmin.minify(content, {
+                useShortDoctype: true,
+                removeComments: true,
+                collapseWhitespace: true
+            });
+        }
+        return content;
+    });
 
     return {
         dir: {
