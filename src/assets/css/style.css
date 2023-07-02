@@ -25,13 +25,6 @@ a {
 
 
 
-.card {
-    background: white;
-    box-shadow: rgba(0, 0, 0, 0.2) 0px 6px 8px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
-}
-
-
-
 .post {
     display: flex;
     flex-direction: column;
@@ -328,7 +321,7 @@ a {
 
 
 .section-posts {
-    background-color: white;
+    
 }
 
 
@@ -346,24 +339,42 @@ a {
 .project-container {
     display: flex;
     flex-direction: column;
-    padding: 25px;
-    margin: 40px 10px;
-    max-width: 350px;
+    padding: 0 25px 25px 25px;
+    margin: 0 10px;
+    max-width: 450px;
+    border-left: 1px solid rgb(222, 222, 222);
+}
+
+.project-container::before {
+    content: '';
+    display: block;
+    width: 13px;
+    height: 13px;
+    margin: 25px 0 -25px -32px;
+    border: 3px solid rgb(164, 164, 164);
+    border-radius: 6px;
+    box-sizing: border-box;
 }
 
 .project-title {
     font-weight: bold;
     font-size: 20px;
-    padding-bottom: 5px;
+    padding: 5px 0;
+    font-size: 17px;
+}
+
+.project-top-subtitle {
+    font-weight: bold;
+    font-size: 14px;
 }
 
 .project-subtitle {
-    margin: 10px 0;
-    color: #555555;
+    font-weight: bold;
     font-size: 14px;
 }
 
 .project-desc {
+    margin-top: 10px;
     text-align: justify;
     font-size: 14px;
 }
@@ -371,17 +382,17 @@ a {
 .company-logo {
     max-width: 100%;
     max-height: 40px;
-    margin: 10px auto 15px auto;
+    margin-bottom: 5px;
+}
+
+.indented {
+    margin-left: 5px;
 }
 
 @media (max-width: 860px) {
     .section-title {
         margin: 0 0 20px 0;
         font-size: 23px;
-    }
-
-    .project-container {
-        margin: 20px 10px;
     }
 }
 
@@ -403,4 +414,49 @@ a {
 .cookie-consent-button {
     text-decoration: underline;
     cursor: pointer;
+}
+
+
+
+.section-github {
+    background-color: white;
+}
+
+.github-card {
+    max-width: 500px;
+    background: white;
+    border: 1px solid #d0d7de;
+    border-radius: 6px;
+}
+
+.github-card-header {
+    padding: 16px;
+}
+
+.github-card-header a {
+    text-decoration: none;
+    display: flex;
+    gap: 8px;
+    align-items: end;
+    color: #0969da;
+}
+
+.github-card-header a:hover {
+    text-decoration: underline;
+}
+
+.github-card-header a span {
+    color: #0969da;
+    font-size: 20px;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";;
+}
+
+.github-repo-icon {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+.github-card-desc {
+    padding: 0 16px;
 }
