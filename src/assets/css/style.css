@@ -460,3 +460,20 @@ a {
 .github-card-desc {
     padding: 0 16px;
 }
+
+.github-card-image-container {
+    border-color: #d0d7de;
+    border-width: 1px 0;
+    border-style: solid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.github-card-image {
+    max-height: 100px;
+}
+
+.github-card-image img {
+    max-height: 100px;
+}
