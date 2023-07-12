@@ -427,8 +427,8 @@ a {
     flex-direction: row;
     flex-wrap: wrap;
     width: 100%;
-    justify-content: space-around;
-    gap: 16px;
+    justify-content: center;
+    gap: 20px;
 }
 
 .github-card {
@@ -523,4 +523,28 @@ a {
 
 .github-technology-color-security::before {
     background: rgb(184, 11, 37);
+}
+
+.github-technology-color-sql::before {
+    background: rgb(248, 55, 7);
+}
+
+.github-technology-color-mssql::before {
+    background: rgb(240, 248, 7);
+}
+
+.github-technology-color-11ty::before {
+    background: rgb(0, 0, 0);
+}
+
+.github-technology-color-s3::before {
+    background: rgb(229, 153, 12);
+}
+
+.github-technology-color-ghactions::before {
+    background: rgb(12, 175, 229);
+}
+
+.github-technology-color-cloudfront::before {
+    background: rgb(229, 70, 12);
 }
