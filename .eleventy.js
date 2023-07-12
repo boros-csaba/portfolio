@@ -15,6 +15,9 @@ const imageShortcode = async (
     formats: [...formats],
     outputDir: './dist/assets/img/',
     urlPath: '/assets/img/',
+    sharpOptions: {
+      animated: true
+    }
   });
 
   const sourceHtmlString = Object.values(imageMetadata)
