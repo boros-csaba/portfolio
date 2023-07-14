@@ -6,3 +6,6 @@
 node_modules
 dist
 .cache
+/functions/CreateComment/.vs
+/functions/CreateComment/bin
+/functions/CreateComment/obj
