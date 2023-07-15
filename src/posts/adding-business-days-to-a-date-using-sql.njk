@@ -14,31 +14,7 @@ The logic is quite simple:
     <li>if the resulting date is a Saturday then add 1 more day</li>
 </ul>
 And here is the resulting code:
-<p class="code">
-create function addWorkingDays(@startDate datetime, @workingDays int)
-returns datetime
-as begin
-    if @workingDays = 0
-        return @startDate
-
-    declare @calendarDays int = 
-        (@workingDays / 5) * 7 +  -- add whole weeks 
-        (@workingDays % 5) -- add remaining days
-
-    declare @resultDate datetime = dateadd(d, @calendarDays, @startDate)
-
-    declare @dayOfWeek int = ((datepart(DW, @resultdate) - 1) + @@datefirst ) % 7 --the @@datefirst part is needed if you are outside of US where 0 is Monday 
-
-    return case 
-        when @dayOfWeek = 0 then --Sunday
-            dateadd(d, @calendarDays, @startDate) + 1
-        when @dayOfWeek = 6 then -- Saturday
-            dateadd(d, @calendarDays, @startDate) + 2
-        else
-            dateadd(d, @calendarDays, @startDate)
-    end
-end
-</p>
+<script src="https://gist.github.com/boros-csaba/56477989d6d28a83c4946cfcaa62dfd3.js"></script>
 The bellow table lists a few test cases:
 <img src="/assets/img/posts/sql-dates-example.png" alt="SQL dates example"/>
 <p></p>

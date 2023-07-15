@@ -37,38 +37,7 @@ tags: post
     Here is the yml file that does all this magic:
 </p>
 
-<p class="code">name: deployment
-
-on:
-  push:
-    branches:
-      - master
-
-jobs:
-  deploy:
-    name: Deploy to S3
-    runs-on: ubuntu-latest
-    steps:
-
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Install packages
-        run: npm ci
-
-      - name: Build
-        run: npm run build
-
-      - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v2
-        with:
-          aws-access-key-id: ${% raw %}{{ secrets.AWS_ACCESS_KEY_ID }}{% endraw %}
-          aws-secret-access-key: ${% raw %}{{ secrets.AWS_SECRET_ACCESS_KEY }}{% endraw %}
-          aws-region: us-west-1
-
-      - name: Deploy to S3
-        run: aws s3 sync ./dist s3://www.boroscsaba.com
-</p>
+<script src="https://gist.github.com/boros-csaba/61f84f15329b213b9d054d2b0dc1b0ed.js"></script>
 
 <p>
     The AWS credentials are stored as secrets in the repository settings.
