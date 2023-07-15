@@ -548,3 +548,11 @@ a {
 .github-technology-color-cloudfront::before {
     background: rgb(229, 70, 12);
 }
+
+.github-technology-color-ef::before {
+    background: rgb(12, 189, 229);
+}
+
+.github-technology-color-net::before {
+    background: rgb(95, 12, 229);
+}
