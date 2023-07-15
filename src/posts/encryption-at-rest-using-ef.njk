@@ -1,0 +1,40 @@
+---
+title: Encryption at rest using EF
+layout: post
+tags: post
+---
+
+<p>Encryption at rest can come in handy when we have some sensitive data that we need to store in our database and we don't want to store it in plain text for everyone to see.
+<p>In my case I needed to store some API keys in the database. The keys are inputted by the app users and the app later uses these keys for accessing some external services.
+<p>In this tutorial I will show you a seamless way to use encryption at rest in your .NET application using EF value converters.</p>
+<h2>How it will work</h2>
+<p>First we will create a ValueConverter that encrypts values on write and decrypts on read. We will also create an attribute, EncryptedAttribute, and apply the value converter to each of the properties that has the EncryptedAttribute.</p>
+<img src="/assets/img/posts/encryption-value-converter.png" alt="Encryption value converter" />
+
+<h3>The value converter class</h3>
+<p>
+    We will need a string-string value converter that can encrypt on write and decrypt on read.<br />
+    For this we will use AES encryption and we will need an encryption key. This key is a simple base64 string but we need to store it securely (in Azure Key Vault for example). I won't go in detail here, but we well also need a unique IV (initialization vector) key that will basically ensure that we always get different ciphers even if the input string is the same. Because the IV value is also needed when we decrypt the data we will just append the IV value to the cipher and store it in the database as part of the encrypted value.<br />
+    Here is the source code of my value converter:
+</p>
+<script src="https://gist.github.com/boros-csaba/119d3fff226941fbcfbd12875d4d4dc0.js"></script>
+
+<h3>The Encrypted attribute</h3>
+<p>
+    We will create an attribute and write some logic to apply the converter to the properties that use this attribute.<br />
+    The source code for the attribute:
+</p>
+<script src="https://gist.github.com/boros-csaba/7eeac0f3f7d456d9b3bae257099b81ec.js"></script>
+<p>
+    And here is the code that will apply the converter based on the attribute.<br />
+    I will place this static method inside my converter:
+</p>
+<script src="https://gist.github.com/boros-csaba/488970694621e61b311bd1f367fdbcdf.js"></script>
+<p>And the final step is to call the EncryptedConverter.Apply function from the OnModelCreating method of our db context:</p>
+<script src="https://gist.github.com/boros-csaba/89175d5ecc9f7f0d14866e402081ae7e.js"></script>
+<h3>Ready to go</h3>
+<p>Now we just need to add the [Encrypted] attribute to the properties we want to store in an encrypted form. Your DbContext will work as usually, you can write and read your plain text properties but in the underlaying database table the data will be encrypted.</p>
+
+<p>You can also find the source code and a working example in this repository: <a href="https://github.com/boros-csaba/encryption-at-rest-with-property-attribute" target="_blank">https://github.com/boros-csaba/encryption-at-rest-with-property-attribute</a></p>
+
+<p>Comments available on <a href="https://dev.to/boroscsaba/adding-business-days-to-a-date-using-sql-26pb">dev.to</a></p>
