@@ -51,16 +51,6 @@ a {
     margin: 0 0 40px 0;
 }
 
-.code {
-    background-color: black;
-    padding: 24px;
-    color: white;
-    border: 1px solid black;
-    border-radius: 5px;
-    font-size: 0.8em;
-    white-space: pre;
-}
-
 
 
 .section-header {
@@ -245,6 +235,44 @@ a {
     }
 }
 
+
+
+.section-subheader {
+    margin: 0px;
+    padding: 0px;
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border: 1px solid #efeeee;
+    border-width: 0 0 1px 0;
+}
+
+.subheader-buttons {
+    display: flex;
+    max-width: 800px;
+    width: 100%;
+}
+
+.subheader-button {
+    display: flex;
+    align-items: center;
+    font-family: Roboto,Helvetica Neue,sans-serif;
+    font-weight: 500;
+    margin: 4px;
+    margin: 0 25px;
+    text-decoration: none;
+}
+
+.subheader-button:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 580px) {
+    .mobile-hidden {
+        display: none;
+    }
+}
 
 
 .section-offered-services {
