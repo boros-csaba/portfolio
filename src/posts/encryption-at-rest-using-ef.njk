@@ -4,8 +4,8 @@ layout: post
 tags: post
 ---
 
-<p>Encryption at rest can come in handy when we have some sensitive data that we need to store in our database and we don't want to store it in plain text for everyone to see.
-<p>In my case I needed to store some API keys in the database. The keys are inputted by the app users and the app later uses these keys for accessing some external services.
+<p>Encryption at rest can come in handy when we have some sensitive data that we need to store in our database and we don't want to store it in plain text for everyone to see.</p>
+<p>In my case I needed to store some API keys in the database. The keys are inputted by the app users and the app later uses these keys for accessing some external services.</p>
 <p>In this tutorial I will show you a seamless way to use encryption at rest in your .NET application using EF value converters.</p>
 <h2>How it will work</h2>
 <p>First we will create a ValueConverter that encrypts values on write and decrypts on read. We will also create an attribute, EncryptedAttribute, and apply the value converter to each of the properties that has the EncryptedAttribute.</p>
