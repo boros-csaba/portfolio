@@ -376,6 +376,7 @@ a {
 .project-container::before {
     content: '';
     display: block;
+    background: #f8f9fa;
     width: 13px;
     height: 13px;
     margin: 25px 0 -25px -32px;
