@@ -51,6 +51,16 @@ a {
     margin: 0 0 40px 0;
 }
 
+.code {
+    background-color: black;
+    padding: 24px;
+    color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    font-size: 0.8em;
+    white-space: pre;
+    margin: 5px 0 !important;
+}
 
 
 .section-header {
@@ -583,5 +593,9 @@ a {
 }
 
 .github-technology-color-net::before {
+    background: rgb(95, 12, 229);
+}
+
+.github-technology-color-terraform::before {
     background: rgb(95, 12, 229);
 }

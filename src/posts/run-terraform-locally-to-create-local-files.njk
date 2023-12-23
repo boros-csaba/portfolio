@@ -1,0 +1,73 @@
+---
+title: Simple way to play around with terraform locally without any cloud account
+layout: post
+tags: post
+---
+
+<p>
+    I don't want to live under a bridge or on the streets. For this reason when I was learning terraform I was stressed about messing up something and getting a huge bill from aws or gcp.<br />
+    Fortunately I found an easy way to start playing around with terraform locally without using any cloud account or any complicated local kubernetes setup.
+</p>
+<p>
+    As you probably already know terraform is a tool that lets you provision and manage infrastructure resources. Things like virtual machines, EC2 instances, IAM users and so on...<br />
+    Basically terraform is able to create and manage any type of resources if there is a Provider written for it. There are separate providers for aws, gcp, digital ocean, you name it. You can browse the list of available Providers or you can even write your own. Here is the official <a href="https://registry.terraform.io/browse/providers" target="_blank">list of providers</a>.
+</p>
+<p>
+    In this tutorial we will be using the local Provider as this can provision <a href="https://registry.terraform.io/providers/hashicorp/local/latest" target="_blank">local</a> files without needing any other setup.
+</p>
+
+<h2>Install terraform</h2>
+<p>
+Step 0 is to configure terraform on your machine. This is very easy to do, you just need to download a binary and set up its path in the path system variable.<br />
+Download and unzip the terraform binary from the terraform website. I will place it in a newly created C:/terraform folder.<br />
+Next step is to add the location of the terraform.exe file to your PATH system variable.
+</p>
+<p>Go to System properties:</p>
+<img src="/assets/img/posts/system-properties.jpg" alt="System properties" style="max-width: 389px; margin: 0 auto" />
+<p></p>
+<p>And select "Environment Variables..."</p>
+<img src="/assets/img/posts/environment-variables.png" alt="Environment variables" style="max-width: 618px; margin: 0 auto" />
+<p></p>
+<p>In the "System variables" section find the "Path" variable and click "Edit..."</p>
+<img src="/assets/img/posts/path-variable.png" alt="Add terraform env variable" style="max-width: 616px; margin: 0 auto" />
+<p></p>
+<h2>Write some terraform</h2>
+<p>
+    Open up vs code (or any other IDE) in an empty folder and create a new file and name it main.tf<br />
+    First we need to specify the providers we will be using and then we can specify the resources we want to create. Here is an example terraform file that will create a hello.txt file with the content of "hello world".
+</p>
+<script src="https://gist.github.com/boros-csaba/534df504ec377adb309d2675509ec263.js"></script>
+<p>
+    It's always a good idea to check the documentation of the provider as it will tell us what resources it can create and what are the options we can set.
+</p>
+<img src="/assets/img/posts/terraform-docs.png" alt="Terraform docs" style="max-width: 690px; margin: 0 auto" />
+<p></p>
+<p>
+    As you can see the local provider has a resource called local file and it has a required filename property. Optionally we can also specify the content of the file.
+</p>  
+<h2>Terraform commands</h2>
+Open a new terminal and run
+<p class="code">terraform init</p>
+<p>
+    This will Prepare your working directory and download all the necessary files for the provider.
+</p>
+Next run
+<p class="code">terraform validate</p>
+This command will validate the syntax of your code.<br />
+<p></p>
+And now the fun part, let's run
+<p class="code">terraform plan</p>
+<p>The plan command will output the list of changes that need to be made to reach the infrastructure described in your code. In this case the plan should be to create one new file.</p>
+And now let's run
+<p class="code">terraform apply</p>
+The apply command will persist the planned changes. In this case it will create the file.
+<img src="/assets/img/posts/terraform-file.png" alt="Terraform file" style="max-width: 573px; margin: 0 auto" />
+<p></p>
+You can remove the file by running the destroy command:
+<p class="code">terraform destroy</p>
+<p></p>
+<p>
+Now you can play around with it and see what happens if you modify your code and plan and apply it again or what happens if you modify the file manually. Have fun!
+</p>
+This tutorial is also available on youtube: <a href="https://www.youtube.com/watch?v=nb6onGm970k" target="_blank">https://www.youtube.com/watch?v=nb6onGm970k</a>
+<p>Comments available on <a href="https://dev.to/boroscsaba/simple-way-to-play-around-with-terraform-locally-without-any-cloud-account-12k5" target="_blank">dev.to</a></p>
