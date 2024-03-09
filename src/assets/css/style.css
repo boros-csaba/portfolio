@@ -318,6 +318,7 @@ a {
 .tech-chip {
     display: flex;
     align-items: center;
+    justify-content: center;
     padding: 0 14px 0 0;
     background: #e6e5e5;
     border-radius: 16px;
@@ -333,7 +334,7 @@ a {
 
 .tech-chip img {
     width: 26px;
-    margin: 6px 8px;
+    margin: 8px 8px 4px 8px;
 }
 
 .tech-chip div {
