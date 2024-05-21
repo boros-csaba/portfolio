@@ -305,6 +305,12 @@ a {
     padding: 0 20px;
 }
 
+.service-list-icons-container {
+    display: flex; 
+    flex-direction: column; 
+    align-items: center
+}
+
 .service-list-tech {
     display: flex;
     flex-wrap: wrap;
