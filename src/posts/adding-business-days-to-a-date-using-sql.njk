@@ -11,11 +11,11 @@ The logic is quite simple:
     <li>for each 5 working days add an entire calendar week to the starting date</li>
     <li>after adding the whole weeks add the remaining days (for example adding 8 days means adding 1 week and 3 days)</li>
     <li>if the resulting date is a Saturday then add 2 more days</li>
-    <li>if the resulting date is a Saturday then add 1 more day</li>
+    <li>if the resulting date is a Sunday then add 1 more day</li>
 </ul>
 And here is the resulting code:
 <script src="https://gist.github.com/boros-csaba/56477989d6d28a83c4946cfcaa62dfd3.js"></script>
-The bellow table lists a few test cases:
+The below table lists a few test cases:
 <img src="/assets/img/posts/sql-dates-example.png" alt="SQL dates example"/>
 <p></p>
 <p>Your feedback is welcome! Please let me know if you think there is something important that should be included in this post or if you find anything wrong!</p>

@@ -33,11 +33,11 @@ tags: post
     An SSL Certificate in its most basic form works just like an identity card. The ID card certifies that the information from the ID card belongs to the person from the photo. You trust the information on an identity card because you trust the issuer of the card, the government.<br />
     A SSL Certificate certifies that a given public key belongs to a given domain or IP address and it is signed by a third party (CA - Certificate Authority) organization. If you trust the authority who signed it, then you can trust the certificate.
 </p>
-<p>These formal definitions like, "certificate" and "authority" may seem overwhelming, bug there is nothing complicated about SSL Certificates. A certificate is just a piece of data with a standard format (X.509 is the name of the standard).</p>
+<p>These formal definitions like, "certificate" and "authority" may seem overwhelming, but there is nothing complicated about SSL Certificates. A certificate is just a piece of data with a standard format (X.509 is the name of the standard).</p>
 <h2>What is a certificate?</h2>
 The most important information of a certificate are:
 <ul>
-    <li>validity (the period during which the certificate is vaid)</li>
+    <li>validity (the period during which the certificate is valid)</li>
     <li>domain name of the subject (CN)</li>
     <li>more information about the subject (company name, county, etc)</li>
     <li>public key of the subject</li>
@@ -55,7 +55,7 @@ The most important information of a certificate are:
 </p>
 <h2>Who can sign a certificate?</h2>
 <p>
-    Basically anyone... A certificate is basically singed by a private key. This signing private key in turn has a public key and also a certificate of the public key. And in turn this certificate is also signed, forming a chain of certificates.<br />
+    Basically anyone... A certificate is basically signed by a private key. This signing private key in turn has a public key and also a certificate of the public key. And in turn this certificate is also signed, forming a chain of certificates.<br />
     A certificate can also be self-signed, this would be the root certificate.<br />
     A certificate is trusted by the browser if it trusts the root certificate. The operating system and the browser have lists of pre-installed Certificate Authority certificates they trust (such as DigiCert, Go Daddy, Let's Encrypt, etc.)
 </p>
