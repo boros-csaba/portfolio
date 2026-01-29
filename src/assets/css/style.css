@@ -304,13 +304,47 @@ a {
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
+    gap: 30px;
 }
 
 .services-list {
-    max-width: 400px;
+    flex: 1 1 360px;
+    max-width: 520px;
     font-size: 16px;
     color: #6B7280;
     padding: 0 20px;
+}
+
+.services-focus-container {
+    flex: 1 1 360px;
+    max-width: 520px;
+    padding: 0 20px;
+}
+
+.services-focus-title {
+    font-size: 20px;
+    margin: 0 0 12px 0;
+    color: #111827;
+    font-weight: 600;
+}
+
+.focus-areas-list {
+    margin: 0;
+    padding: 0 0 0 18px;
+    font-size: 16px;
+    line-height: 1.4;
+    color: #111827;
+}
+
+.focus-areas-list li {
+    margin: 4px 0;
+}
+
+.service-techs {
+    margin-top: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .service-list-icons-container {
@@ -319,27 +353,30 @@ a {
     align-items: center
 }
 
+.service-list-icons-container b {
+    font-size: 12px;
+}
+
 .service-list-tech {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    float: left;
     width: 100%;
-    max-width: 460px;
-    padding: 20px 20px 0 20px;
+    max-width: 840px;
+    padding: 10px 20px 0 20px;
 }
 
 .tech-chip {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0 14px 0 0;
+    padding: 0 8px 0 0;
     background: #e6e5e5;
     border-radius: 16px;
     margin: 4px;
     font-family: Roboto,Helvetica Neue,sans-serif;
     font-weight: 500;
-    font-size: 14px;
+    font-size: 11px;
 }
 
 .tech-chip:hover { 
@@ -347,8 +384,12 @@ a {
 }
 
 .tech-chip img {
-    width: 26px;
-    margin: 8px 8px 4px 8px;
+    height: 18px;
+    width: auto;
+    max-width: 24px;
+    object-fit: contain;
+    display: block;
+    margin: 5px 6px 4px 6px;
 }
 
 .tech-chip div {
