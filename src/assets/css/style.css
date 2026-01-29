@@ -647,3 +647,22 @@ a {
     width: 100%;
     height: auto;
 }
+
+.section-fun-note {
+    padding: 20px 0 40px 0;
+    background-color: white;
+}
+
+.fun-note {
+    font-size: 12px;
+    color: #6b7280;
+    text-align: center;
+    letter-spacing: 0.2px;
+}
+
+@media (max-width: 580px) {
+    .fun-note {
+        font-size: 13px;
+        padding: 0 16px;
+    }
+}
