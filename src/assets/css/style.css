@@ -681,12 +681,74 @@ a {
     align-items: center;
     justify-content: center;
     background: white;
+    min-width: 240px;
+    min-height: 240px;
+    box-sizing: border-box;
 }
 
 .certification-badge {
-    max-width: 200px;
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+}
+
+.toptal-badge {
+    width: 200px;
+    height: 200px;
+    padding: 6px;
+    box-sizing: border-box;
+    background: #25a9ef;
+    clip-path: polygon(50% 0, 100% 24%, 100% 76%, 50% 100%, 0 76%, 0 24%);
+    font-family: Arial, sans-serif;
+    color: white;
+    text-align: center;
+}
+
+.toptal-badge-content {
     width: 100%;
-    height: auto;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    background: linear-gradient(153deg, #0667ff 18%, #204ecf 40%, #0f256e 80%);
+    clip-path: inherit;
+}
+
+.toptal-badge-stars {
+    width: 64px;
+    height: 18px;
+}
+
+.toptal-badge-title {
+    font-size: 17px;
+    line-height: 1;
+}
+
+.toptal-badge-rule {
+    width: 120px;
+    height: 1px;
+    background: #25a9ef;
+}
+
+.toptal-badge-vetted {
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+.toptal-badge-logo {
+    width: 100px;
+    height: 28px;
+}
+
+.toptal-badge-link {
+    padding: 4px 20px;
+    border-radius: 6px;
+    background: #296bff;
+    color: white;
+    font-size: 14px;
+    text-underline-offset: 2px;
 }
 
 .section-fun-note {
